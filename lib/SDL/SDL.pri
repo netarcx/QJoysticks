@@ -24,7 +24,9 @@ win32-msvc* {
 }
 
 macx* {
-    LIBS += -L$$PWD/bin/mac-osx/ -lSDL2
+    # Use Homebrew's SDL2 for arm64 support
+    LIBS += -L/opt/homebrew/lib -lSDL2
+    INCLUDEPATH += /opt/homebrew/include/SDL2
 
     LIBS += -framework AudioToolbox
     LIBS += -framework AudioUnit
